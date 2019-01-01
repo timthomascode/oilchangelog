@@ -28,7 +28,7 @@ class OilChangesController < ApplicationController
 
     respond_to do |format|
       if @oil_change.save
-        format.html { redirect_to @oil_change, notice: 'Oil change was successfully created.' }
+        format.html { redirect_to vehicle_path(params[:vehicle_id]), notice: 'Oil change was successfully created.' }
         format.json { render :show, status: :created, location: @oil_change }
       else
         format.html { render :new }

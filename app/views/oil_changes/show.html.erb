@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vehicle:</strong>
+  <%= @oil_change.vehicle %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @oil_change.date %>
+</p>
+
+<p>
+  <strong>Mileage:</strong>
+  <%= @oil_change.mileage %>
+</p>
+
+<p>
+  <strong>Oil used:</strong>
+  <%= @oil_change.oil_used %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @oil_change.notes %>
+</p>
+
+<%= link_to 'Edit', edit_oil_change_path(@oil_change) %> |
+<%= link_to 'Back', oil_changes_path %>

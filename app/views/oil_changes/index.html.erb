@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Oil Changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vehicle</th>
+      <th>Date</th>
+      <th>Mileage</th>
+      <th>Oil used</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @oil_changes.each do |oil_change| %>
+      <tr>
+        <td><%= oil_change.vehicle %></td>
+        <td><%= oil_change.date %></td>
+        <td><%= oil_change.mileage %></td>
+        <td><%= oil_change.oil_used %></td>
+        <td><%= oil_change.notes %></td>
+        <td><%= link_to 'Show', oil_change %></td>
+        <td><%= link_to 'Edit', edit_oil_change_path(oil_change) %></td>
+        <td><%= link_to 'Destroy', oil_change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Oil Change', new_oil_change_path %>

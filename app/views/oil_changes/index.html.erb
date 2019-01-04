@@ -23,7 +23,7 @@
         <td><%= oil_change.oil_used %></td>
         <td><%= oil_change.notes %></td>
         <td><%= link_to 'Show', oil_change %></td>
-        <td><%= link_to 'Edit', edit_oil_change_path(oil_change) %></td>
+        <td><%= link_to 'Edit', edit_vehicle_oil_change_path(oil_change) %></td>
         <td><%= link_to 'Destroy', oil_change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

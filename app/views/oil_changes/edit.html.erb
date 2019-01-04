@@ -2,5 +2,4 @@
 
 <%= render 'form', oil_change: @oil_change %>
 
-<%= link_to 'Show', @oil_change %> |
-<%= link_to 'Back', oil_changes_path %>
+<%= link_to 'Back', vehicle_path(@oil_change.vehicle_id) %>

@@ -1,4 +1,4 @@
-<%= form_with(model: oil_change, local: true) do |form| %>
+<%= form_with(model: oil_change, url: vehicle_oil_changes_path, local: true) do |form| %>
   <% if oil_change.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(oil_change.errors.count, "error") %> prohibited this oil_change from being saved:</h2>
@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :vehicle_id %>
-    <%= form.text_field :vehicle_id %>
-  </div>
+  <%= form.hidden_field :vehicle_id, value: params[:vehicle_id] %>
 
   <div class="field">
     <%= form.label :date %>

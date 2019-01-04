@@ -21,4 +21,27 @@
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+<%= link_to 'Back', vehicles_path %><hr>
+
+<%= link_to 'New Oil Change', new_vehicle_oil_change_path(@vehicle) %>
+<% if @oil_changes.count > 0 %>
+  <h2>Oil Change History:</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Mileage</th>
+      <th>Oil Used</th>
+      <th>Notes</th>
+      <th>Administration</th>
+    </tr>
+  <% @oil_changes.each do |oil_change| %>
+    <tr>
+      <td><%= oil_change.date %></td>
+      <td><%= oil_change.mileage %></td>
+      <td><%= oil_change.oil_used %></td>
+      <td><%= oil_change.notes %></td>
+      <td><%= link_to 'Edit', edit_vehicle_oil_change_path(@vehicle.id, oil_change.id) %> <%= link_to 'Destroy', vehicle_oil_change_path(@vehicle.id, oil_change.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

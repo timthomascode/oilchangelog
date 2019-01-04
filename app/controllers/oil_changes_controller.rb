@@ -42,7 +42,7 @@ class OilChangesController < ApplicationController
   def update
     respond_to do |format|
       if @oil_change.update(oil_change_params)
-        format.html { redirect_to @oil_change, notice: 'Oil change was successfully updated.' }
+        format.html { redirect_to vehicle_path(params[:vehicle_id]), notice: 'Oil change was successfully updated.' }
         format.json { render :show, status: :ok, location: @oil_change }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class OilChangesController < ApplicationController
   def destroy
     @oil_change.destroy
     respond_to do |format|
-      format.html { redirect_to oil_changes_url, notice: 'Oil change was successfully destroyed.' }
+      format.html { redirect_to vehicle_path(params[:vehicle_id]), notice: 'Oil change was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

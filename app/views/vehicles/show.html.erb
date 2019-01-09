@@ -32,7 +32,7 @@
       <th>Mileage</th>
       <th>Oil Used</th>
       <th>Notes</th>
-      <th>Administration</th>
+      <th colspan="2"></th>
     </tr>
   <% @oil_changes.each do |oil_change| %>
     <tr>
@@ -40,7 +40,8 @@
       <td><%= oil_change.mileage %></td>
       <td><%= oil_change.oil_used %></td>
       <td><%= oil_change.notes %></td>
-      <td><%= link_to 'Edit', edit_vehicle_oil_change_path(@vehicle.id, oil_change.id) %> <%= link_to 'Destroy', vehicle_oil_change_path(@vehicle.id, oil_change.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit', edit_vehicle_oil_change_path(@vehicle.id, oil_change.id) %></td> 
+      <td><%= link_to 'Destroy', vehicle_oil_change_path(@vehicle.id, oil_change.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </table>

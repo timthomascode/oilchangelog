@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'vehicles#index'
+
   resources :vehicles do
     resources :oil_changes, only: [:new, :create, :edit, :update, :destroy]
   end

@@ -10,7 +10,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles/1
   # GET /vehicles/1.json
   def show
-    @oil_changes = @vehicle.oil_changes
+    @oil_changes = @vehicle.oil_changes.order(:date)
   end
 
   # GET /vehicles/new

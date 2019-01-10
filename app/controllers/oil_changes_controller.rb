@@ -1,5 +1,6 @@
 class OilChangesController < ApplicationController
   before_action :set_oil_change, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
 
   # GET /oil_changes
   # GET /oil_changes.json

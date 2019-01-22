@@ -4,7 +4,7 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = current_user.vehicles
   end
 
   # GET /vehicles/1
@@ -25,7 +25,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles
   # POST /vehicles.json
   def create
-    @vehicle = Vehicle.new(vehicle_params)
+    @vehicle = current_user.vehicles.new(vehicle_params)
 
     respond_to do |format|
       if @vehicle.save
@@ -65,7 +65,7 @@ class VehiclesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
+      @vehicle = current_user.vehicles.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

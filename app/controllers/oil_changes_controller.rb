@@ -65,7 +65,7 @@ class OilChangesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_oil_change
-      @oil_change = OilChange.find(params[:id])
+      @oil_change = current_user.vehicles.find(params[:vehicle_id]).oil_changes.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

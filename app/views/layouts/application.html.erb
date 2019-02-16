@@ -10,13 +10,26 @@
   </head>
 
   <body>
-    <div id="notice"><%= notice %></div>
-    <main class="<%= controller.controller_name %>">
-      <% if signed_in? %>
-        Signed in as: <%= current_user.email %>
-        <%= button_to 'Sign out', sign_out_path, method: :delete %>
-      <% end %>
-      <%= yield %>
-    </main>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <% if notice %>
+              <div class="notification">
+                <%= notice %>
+              </div>
+            <% end %>
+            <section class="<%= controller.controller_name %>">
+              <% if signed_in? %>
+                Signed in as: <%= current_user.email %> 
+                <%= button_to 'Sign out', sign_out_path, method: :delete %>
+              <% end %>
+              <%= yield %>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
+
 </html>

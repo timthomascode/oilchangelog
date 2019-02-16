@@ -10,14 +10,12 @@
   </head>
 
   <body>
-
+    <div id="notice"><%= notice %></div>
     <main class="<%= controller.controller_name %>">
       <% if signed_in? %>
         Signed in as: <%= current_user.email %>
         <%= button_to 'Sign out', sign_out_path, method: :delete %>
       <% end %>
-
-      <div id="notice"><%= notice %></div>
       <%= yield %>
     </main>
   </body>

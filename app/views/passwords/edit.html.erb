@@ -1,5 +1,5 @@
-<div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
+<div id="clearance" class="password-reset box">
+  <h2 class="title is-size-4"><%= t(".title") %></h2>
 
   <p><%= t(".description") %></p>
 
@@ -7,12 +7,12 @@
         url: user_password_path(@user, token: @user.confirmation_token),
         html: { method: :put } do |form| %>
     <div class="password-field">
-      <%= form.label :password %>
-      <%= form.password_field :password %>
+      <%= form.label :password, class: "label" %>
+      <%= form.password_field :password, class: "input is-medium" %>
     </div>
 
     <div class="submit-field">
-      <%= form.submit %>
+      <%= form.submit class: "button" %>
     </div>
   <% end %>
 </div>

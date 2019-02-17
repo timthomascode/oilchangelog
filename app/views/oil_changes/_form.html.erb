@@ -14,26 +14,26 @@
   <%= form.hidden_field :vehicle_id, value: params[:vehicle_id] %>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.label :date, class: "label" %>
+    <%= form.date_select :date, class: "date is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :mileage %>
-    <%= form.text_field :mileage %>
+    <%= form.label :mileage, class: "label" %>
+    <%= form.text_field :mileage, class: "input is-medium", placeholder: "Mileage"%>
   </div>
 
   <div class="field">
-    <%= form.label :oil_used %>
-    <%= form.text_field :oil_used %>
+    <%= form.label :oil_used, class: "label is-capitalized" %>
+    <%= form.text_field :oil_used, class: "input is-medium", placeholder: "Oil Used" %>
   </div>
 
   <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes %>
+    <%= form.label :notes, class: "label" %>
+    <%= form.text_area :notes, class: "textarea is-medium", rows: 5, placeholder: "Put additional notes here" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions has-text-centered">
+    <%= form.submit class: "button" %>
   </div>
 <% end %>

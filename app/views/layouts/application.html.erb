@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Oilchangelog</title>
+    <title>Oil Change Log</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,25 +11,30 @@
   </head>
 
   <body>
-    <section class="section">
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            <% if notice %>
-              <div class="notification">
-                <%= notice %>
-              </div>
-            <% end %>
-            <section class="<%= controller.controller_name %>">
-              <% if signed_in? %>
-                Signed in as: <%= current_user.email %> 
-                <%= button_to 'Sign out', sign_out_path, method: :delete %>
-              <% end %>
-              <%= yield %>
-            </section>
-          </div>
+    <section class="hero is-info is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">Oil Change Log</h1>
+          <% if signed_in? %>
+            <h2 class="subtitle">
+              <%= current_user.email %> 
+              <%= button_to 'Sign out', sign_out_path, method: :delete, class: "button is-dark is-rounded is-small", form: {style: 'display:inline-block;'} %>
+            </h2>
+          <% end %>
         </div>
       </div>
+    </section>
+    <section class="section">
+    <section class="<%= controller.controller_name %>">
+      <div class="container <%= controller.action_name %>">
+        <% if notice %>
+          <div class="notification">
+            <%= notice %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </section>
     </section>
   </body>
 

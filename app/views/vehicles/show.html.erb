@@ -1,46 +1,56 @@
-<p>
-  <strong>Nickname:</strong>
-  <%= @vehicle.nickname %>
-</p>
+<div class="box">
+  <div class="level">
+    <div class="level-left">
+      <p class="level-item has-text-weight-bold"><%= @vehicle.nickname %> </p> 
+      <p class="level-item is-italic">
+        <%= @vehicle.make %>
+      </p>
+      <p class="level-item">
+        <%= @vehicle.model %>
+      </p>
+      <p class="level-item has-text-weight-bold">
+        <%= @vehicle.mileage %> miles
+      </p>
+    </div>
 
-<p>
-  <strong>Make:</strong>
-  <%= @vehicle.make %>
-</p>
+    <div class="level-right">
+        <%= link_to 'Edit Vehicle', edit_vehicle_path(@vehicle), class: "level-item" %> 
+        <%= link_to 'Delete Vehicle', @vehicle, method: :delete, data: { confirm: 'Are you sure?' }, class: "level-item" %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Model:</strong>
-  <%= @vehicle.model %>
-</p>
+<div class="has-text-centered">
+  <%= link_to 'New Oil Change', new_vehicle_oil_change_path(@vehicle), class: "button is-rounded is-info is-small" %>
+</div>
 
-<p>
-  <strong>Mileage:</strong>
-  <%= @vehicle.mileage %>
-</p>
-
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %><hr>
-
-<%= link_to 'New Oil Change', new_vehicle_oil_change_path(@vehicle) %>
-<% if @oil_changes.count > 0 %>
-  <h2>Oil Change History:</h2>
-  <table>
-    <tr>
-      <th>Date</th>
-      <th>Mileage</th>
-      <th>Oil Used</th>
-      <th>Notes</th>
-      <th colspan="2"></th>
-    </tr>
-  <% @oil_changes.each do |oil_change| %>
-    <tr>
-      <td><%= oil_change.date %></td>
-      <td><%= oil_change.mileage %></td>
-      <td><%= oil_change.oil_used %></td>
-      <td><%= oil_change.notes %></td>
-      <td><%= link_to 'Edit', edit_vehicle_oil_change_path(@vehicle.id, oil_change.id) %></td> 
-      <td><%= link_to 'Destroy', vehicle_oil_change_path(@vehicle.id, oil_change.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
+<% if @oil_changes.exists? %>
+<table>
+  <caption>Oil Change Log</caption>
+    <thead>
+      <tr>
+        <th scope="col" class="date">Date</th>
+        <th scope="col">Mileage</th>
+        <th scope="col">Oil</th>
+        <th scope="col">Notes</th>
+        <th scope="col" class="admin"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @oil_changes.each do |oil_change| %>
+      <tr>
+        <td data-label="Date"><%= oil_change.date %></td>
+        <td data-label="Mileage"><%= oil_change.mileage %></td>
+        <td data-label="Oil"><%= oil_change.oil_used %></td>
+        <td data-label="Notes"><%= oil_change.notes %></td>
+        <td>
+          <div class="has-text-centered">
+            <%= link_to 'Edit', edit_vehicle_oil_change_path(@vehicle.id, oil_change.id), class: "button is-primary is-small" %>
+            <%= link_to 'Delete', vehicle_oil_change_path(@vehicle.id, oil_change.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger is-small" %>
+          </div>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+</table>
 <% end %>

@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nickname %>
-    <%= form.text_field :nickname %>
+    <%= form.label :nickname, class: "label" %>
+    <%= form.text_field :nickname, class: "input is-medium", placeholder: "Vehicle Nickname" %>
   </div>
 
   <div class="field">
-    <%= form.label :make %>
-    <%= form.text_field :make %>
+    <%= form.label :make, class: "label" %>
+    <%= form.text_field :make, class: "input is-medium", placeholder: "Vehicle Make" %>
   </div>
 
   <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model %>
+    <%= form.label :model, class: "label" %>
+    <%= form.text_field :model, class: "input is-medium", placeholder: "Vehicle Model" %>
   </div>
 
   <div class="field">
-    <%= form.label :mileage %>
-    <%= form.text_field :mileage %>
+    <%= form.label :mileage, class: "label" %>
+    <%= form.text_field :mileage, class: "input is-medium", placeholder: "Current Mileage" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions has-text-centered">
+    <%= form.submit class: "button" %>
   </div>
 <% end %>

@@ -11,18 +11,17 @@
     </div>
   </div>
 
-  <div class="field has-text-centered">
-    <%= form.submit class: "button" %>
-  </div>
-
   <div class="level is-mobile">
     <div class="level-left">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t(".sign_up"), sign_up_path %>
-    <% end %>
+      <div class="field">
+        <%= form.submit class: "button is-info" %>
+      </div>
     </div>
     <div class="level-right">
-    <%= link_to t(".forgot_password"), new_password_path %>
+      <% if Clearance.configuration.allow_sign_up? %>
+        <%= link_to t(".sign_up"), sign_up_path, class: "level-item" %>
+      <% end %>
+      <%= link_to t(".forgot_password"), new_password_path, class: "level-item" %>
     </div>
   </div>
 <% end %>

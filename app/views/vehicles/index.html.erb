@@ -1,3 +1,6 @@
+<div>
+  <%= link_to 'Add Vehicle', new_vehicle_path, class: "button full-width-mobile top-of-section is-success has-text-weight-bold" %>
+</div>
 <% if @vehicles %>
 <div class="columns is-tablet is-multiline">
   <% @vehicles.each do |vehicle| %>
@@ -32,6 +35,3 @@
 </div>
 <% end %>
 
-<div class="has-text-centered">
-  <%= link_to 'Add Vehicle', new_vehicle_path, class: "button is-info is-rounded has-text-weight-bold" %>
-</div>

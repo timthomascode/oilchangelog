@@ -16,11 +16,10 @@
 $red: #ff0000;
 @import "bulma";
 section.vehicles {
-  div.box {
-    div.level {
-      margin-bottom: .5rem;
-      .level-item {
-        vertical-align: text-bottom
+  div.container.index {
+    div.box {
+      div.level {
+        margin-bottom: .5rem;
       }
     }
   }
@@ -51,6 +50,10 @@ a.fill {
   height: 100%;
   width: 100%;
   text-decoration: none;
+}
+.button.top-of-section {
+  margin-bottom: 1.5rem;
+  margin-top: -1.5rem;
 }
 
 // ----------------------
@@ -139,5 +142,15 @@ table th {
   
   table td:last-child {
     border-bottom: 0;
+  }
+
+  table .button {
+    margin-top: .35em;
+  }
+  table .button.is-small {
+    font-size: 1.25rem;
+  }
+  .button.full-width-mobile {
+    width: 100%;
   }
 }

@@ -1,3 +1,12 @@
+<div class="level  is-mobile">
+  <div class="level-left">
+    <h1 class="title">Oil Change Log</h1>
+  </div>
+  <div class="level-right">
+  <%= link_to 'New Oil Change', new_vehicle_oil_change_path(@vehicle), class: "button is-success is-medium" %>
+  </div>
+</div>
+
 <div class="box">
   <div class="level">
     <div class="level-left">
@@ -20,13 +29,8 @@
   </div>
 </div>
 
-<div class="has-text-centered">
-  <%= link_to 'New Oil Change', new_vehicle_oil_change_path(@vehicle), class: "button is-rounded is-info is-small" %>
-</div>
-
 <% if @oil_changes.exists? %>
 <table>
-  <caption>Oil Change Log</caption>
     <thead>
       <tr>
         <th scope="col" class="date">Date</th>
@@ -42,7 +46,7 @@
         <td data-label="Date"><%= oil_change.date %></td>
         <td data-label="Mileage"><%= oil_change.mileage %></td>
         <td data-label="Oil"><%= oil_change.oil_used %></td>
-        <td data-label="Notes"><%= oil_change.notes %></td>
+        <td data-label="Notes">&nbsp<%= oil_change.notes %></td>
         <td>
           <div class="has-text-centered">
             <%= link_to 'Edit', edit_vehicle_oil_change_path(@vehicle.id, oil_change.id), class: "button is-primary is-small" %>

@@ -8,6 +8,6 @@ feature 'User can log in' do
     fill_in "Password",	with: "password" 
     click_on "Sign in"
 
-    expect(page).to have_content 'Vehicles'
+    expect(page).to have_content 'Add Vehicle'
   end
 end

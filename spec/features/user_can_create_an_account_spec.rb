@@ -8,6 +8,6 @@ feature "User can create an account" do
     fill_in "Password",	with: "password" 
     click_on "Sign up"
 
-    expect(page).to have_content 'Signed in as: someone@something.com'
+    expect(page).to have_content 'someone@something.com'
   end
 end

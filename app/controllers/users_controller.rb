@@ -1,4 +1,13 @@
 class UsersController < Clearance::UsersController
+  def new
+    if Clearance.configuration.allow_sign_up?
+      @user = user_from_params
+      render template: "users/new"
+    else
+      redirect_to root_path
+    end
+  end
+  
   def create
     @user = user_from_params
 

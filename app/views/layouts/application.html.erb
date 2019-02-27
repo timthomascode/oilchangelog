@@ -8,33 +8,56 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
 
   <body>
     <section class="hero is-info is-bold">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title">Oil Change Log</h1>
-          <% if signed_in? %>
-            <h2 class="subtitle">
-              <%= current_user.email %> 
-              <%= button_to 'Sign out', sign_out_path, method: :delete, class: "button is-dark is-rounded is-small", form: {style: 'display:inline-block;'} %>
-            </h2>
-          <% end %>
-        </div>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+              <div class="navbar-brand">
+              <h1 class="navbar-item is-size-3 has-text-weight-bold"><i class="fas fa-oil-can"></i>&nbspOil Change Log</h1>
+                <% if signed_in? %>
+                <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                  <span aria-hidden="true"></span>
+                </a>
+                <% end %>
+              </div>
+              <% if signed_in? %>
+              <div id="navMenu" class="navbar-menu">
+                <div class="navbar-start">
+                  <div class="navbar-item has-text-weight-bold">Logged in as: <%= current_user.email %></div>
+
+                  <%= link_to 'Vehicles', vehicles_path, class: "navbar-item"%>
+
+                  <%= link_to "Change password", new_password_path, class: "navbar-item" %>
+
+                </div>
+
+                <div class="navbar-end">
+                  <%= link_to 'Sign out', sign_out_path, method: :delete, class: "navbar-item" %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </nav>
+
       </div>
     </section>
     <section class="section">
-    <section class="<%= controller.controller_name %>">
-      <div class="container <%= controller.action_name %>">
-        <% if notice %>
-          <div class="notification">
-            <%= notice %>
-          </div>
-        <% end %>
-        <%= yield %>
-      </div>
-    </section>
+      <section class="<%= controller.controller_name %>">
+        <div class="container <%= controller.action_name %>">
+          <% if notice %>
+            <div class="notification">
+              <%= notice %>
+            </div>
+          <% end %>
+          <%= yield %>
+        </div>
+      </section>
     </section>
   </body>
 
